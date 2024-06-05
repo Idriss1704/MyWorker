@@ -1,0 +1,19 @@
+
+	java:S1128"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ş’ª­ş1J$f10b2ebd-26a7-461f-b80f-45d96bcac136
+‹
+java:S2095"HUse try-with-resources or close this "Connection" in a "finally" clause.(“…§Ú8…“ª­ş1J$4ebccab3-ef60-4135-a226-485a9a67a0bd
+
+java:S2095"EUse try-with-resources or close this "Channel" in a "finally" clause.(‡î‰´ûÿÿÿÿ8…“ª­ş1J$f13ea958-017c-4b0d-8c42-98f76e2236d8
+
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(Ã†îíşÿÿÿÿ8‡“ª­ş1J$f23c5a5f-b9c9-475d-8a5d-6dc5b0f0bd86
+‡
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(†¹íF8‡“ª­ş1J$8f55ed22-d60c-46b6-afdf-cd87e27c8cbd
+ˆ
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(È“¨8‡“ª­ş1J$cf76d2f3-a516-42cc-b50f-304744594ae2
+r	java:S106&"+Replace this use of System.out by a logger.(ó‹Šïÿÿÿÿÿ8“ª­ş1J$8e113a65-92f9-43af-819c-46cb960cb0d6
+r	java:S106*"+Replace this use of System.out by a logger.(Ê¿ù£úÿÿÿÿ8“ª­ş1J$b361abee-bde5-44a3-a3e4-7ef7c1006b0d
+r	java:S1064"+Replace this use of System.out by a logger.(å×åãıÿÿÿÿ8“ª­ş1J$2c6cb2c7-822d-4141-8914-6f19e108c596
+¡
+java:S21427"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8“ª­ş1J$af7a7124-487c-4f63-b40c-55ef54399a43
+‹
+java:S1128"HRemove this unused import 'org.apache.commons.lang3.SerializationUtils'.(ıÍÒ8Ò–®ş1J$ffd4df59-2b56-4126-a6f8-ee72d4a6d4d6

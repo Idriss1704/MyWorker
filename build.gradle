@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+group = 'de.fernunihagen.lenneflow'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    compileOnly 'org.projectlombok:lombok:latest.release'
+    annotationProcessor 'org.projectlombok:lombok:latest.release'
+    implementation 'com.rabbitmq:amqp-client:latest.release'
+    implementation 'org.apache.commons:commons-lang3:3.14.0'
+    implementation 'org.slf4j:slf4j-api:latest.release'
+    implementation 'org.slf4j:slf4j-reload4j:latest.release'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.17.1'
+
+
+
+
+
+
+}
+
+test {
+    useJUnitPlatform()
+}
