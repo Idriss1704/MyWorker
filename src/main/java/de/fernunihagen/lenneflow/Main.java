@@ -20,7 +20,7 @@ public class Main {
     public static void main(String[] args) throws IOException, TimeoutException {
         BasicConfigurator.configure();
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("192.168.70.129");
+        factory.setHost("UbuntuDev");
         factory.setPort(5672);
         factory.setVirtualHost("/");
         factory.setUsername("rabbit");
@@ -37,24 +37,30 @@ public class Main {
             Task task = mapper.readValue(delivery.getBody(), Task.class);
             System.out.println(" [x] Received '" + task.getTaskName() + "'");
             try {
-                doWork(task);
+               TaskResult result = doWork(task);
+               String serializedTaskResult = mapper.writeValueAsString(result);
+               channel.basicPublish("", RESULT_QUEUE_NAME, null, serializedTaskResult.getBytes());
             } finally {
                 System.out.println(" [x] Done");
                 channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
             }
         };
         channel.basicConsume(QUEUE1_NAME, false, deliverCallback, consumerTag -> { });
+        channel.basicConsume(QUEUE2_NAME, false, deliverCallback, consumerTag -> { });
     }
 
-    private static void doWork(Task task) {
+    private static TaskResult doWork(Task task) {
       TaskResult result = new TaskResult();
       result.setMetaData(task.getMetaData());
-      System.out.println("Processing task: " + task.getMetaData());
+      result.setTaskRunner("WORKER");
+      System.out.println("Processing task: " + result.getMetaData());
         try {
-            Thread.sleep(10000);
+            Thread.sleep(30000);
+            result.setTaskStatus(TaskStatus.COMPLETED);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+        return new TaskResult();
     }
 
 
