@@ -2,8 +2,10 @@ package de.fernunihagen.lenneflow;
 
 import lombok.Getter;
 
+import java.io.Serializable;
+
 @Getter
-public enum TaskStatus {
+public enum TaskStatus implements Serializable {
 
     IN_PROGRESS(false, true, true),
     CANCELED(true, false, false),

@@ -35,11 +35,11 @@ public class Main {
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
             ObjectMapper mapper = new ObjectMapper();
             Task task = mapper.readValue(delivery.getBody(), Task.class);
-            System.out.println(" [x] Received '" + task.getTaskName() + "'");
+            System.out.println(" [x] Received '" + task.getTaskStatus() + "'");
             try {
                TaskResult result = doWork(task);
-               String serializedTaskResult = mapper.writeValueAsString(result);
-               channel.basicPublish("", RESULT_QUEUE_NAME, null, serializedTaskResult.getBytes());
+               byte[] serializedTaskResult = mapper.writeValueAsBytes(result);
+               channel.basicPublish("", RESULT_QUEUE_NAME, null, serializedTaskResult);
             } finally {
                 System.out.println(" [x] Done");
                 channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
@@ -55,12 +55,12 @@ public class Main {
       result.setTaskRunner("WORKER");
       System.out.println("Processing task: " + result.getMetaData());
         try {
-            Thread.sleep(30000);
             result.setTaskStatus(TaskStatus.COMPLETED);
+            Thread.sleep(30000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        return new TaskResult();
+        return result;
     }
 
 
