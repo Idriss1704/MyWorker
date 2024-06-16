@@ -30,21 +30,24 @@ public class Task implements Serializable {
 
     private String taskType;
 
+    private String errorMessage;
+
     private String runNode;
 
     private int taskPriority;
 
-    private int retryCount;
+    private int loopCount;
+
+    private String switchCase;
+
+    private boolean doWhileStop;
 
     private long creationTime;
 
     private long updateTime;
 
-    private Map<String, Object> inputPayload = new HashMap<>();
-
-    private Map<String, Object> outputPayload = new HashMap<>();
-
     private Map<String, Object> inputData = new HashMap<>();
 
     private Map<String, Object> outputData = new HashMap<>();
+
 }

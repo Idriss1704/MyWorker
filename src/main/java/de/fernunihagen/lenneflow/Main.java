@@ -5,7 +5,6 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.DeliverCallback;
-import org.apache.commons.lang3.SerializationUtils;
 import org.apache.log4j.BasicConfigurator;
 
 import java.io.IOException;
@@ -37,7 +36,7 @@ public class Main {
             Task task = mapper.readValue(delivery.getBody(), Task.class);
             System.out.println(" [x] Received '" + task.getTaskStatus() + "'");
             try {
-               TaskResult result = doWork(task);
+               Task result = doWork(task);
                byte[] serializedTaskResult = mapper.writeValueAsBytes(result);
                channel.basicPublish("", RESULT_QUEUE_NAME, null, serializedTaskResult);
             } finally {
@@ -49,10 +48,10 @@ public class Main {
         channel.basicConsume(QUEUE2_NAME, false, deliverCallback, consumerTag -> { });
     }
 
-    private static TaskResult doWork(Task task) {
-      TaskResult result = new TaskResult();
+    private static Task doWork(Task task) {
+      Task result = new Task();
       result.setMetaData(task.getMetaData());
-      result.setTaskRunner("WORKER");
+      result.setRunNode("WORKER");
       System.out.println("Processing task: " + result.getMetaData());
         try {
             result.setTaskStatus(TaskStatus.COMPLETED);
@@ -62,6 +61,4 @@ public class Main {
         }
         return result;
     }
-
-
 }

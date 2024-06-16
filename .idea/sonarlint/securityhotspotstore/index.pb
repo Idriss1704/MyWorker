@@ -9,8 +9,6 @@ g
 7src/main/java/de/fernunihagen/lenneflow/TaskResult.java,8\9\89fa28d54e4e5bc35d12deab8f180c63c4846042
 g
 7src/main/java/de/fernunihagen/lenneflow/TaskStatus.java,c\8\c80f8715e400388b61f50324846a55d1649d1264
-e
-5src/main/java/de/fernunihagen/lenneflow/Receiver.java,e\1\e11dfe92edc9119a57b6ab58fb49516100aca24b
 w
 G.idea/sonarlint/issuestore/f/0/f07866736216be0ee2aba49e392191aeae700a35,b\f\bfb9453d49af9bc40f5f7a5f034be3c7ef8fa6bf
 X
