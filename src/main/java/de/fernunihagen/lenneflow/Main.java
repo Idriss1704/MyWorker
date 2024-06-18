@@ -55,7 +55,7 @@ public class Main {
       System.out.println("Processing task: " + result.getMetaData());
         try {
             result.setTaskStatus(TaskStatus.COMPLETED);
-            Thread.sleep(30000);
+            Thread.sleep(15000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
